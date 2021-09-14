@@ -1,5 +1,4 @@
 #this is a stock and flow model 
-# Notice me Senpai!!!
 import queue
 import random
 from queue import Queue
