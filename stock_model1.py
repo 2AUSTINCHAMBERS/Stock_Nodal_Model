@@ -1,4 +1,5 @@
 #this is a stock and flow model 
+# Notice me Senpai!!!
 import queue
 import random
 from queue import Queue
@@ -7,6 +8,9 @@ class Node:
     def __init__(self, name, status = True) -> None:
         self.status = status
         self.name = name
+    
+    def stat(self):
+        print(self.name,self.status)
 
     def report(self):
         if self.status == True:
@@ -186,12 +190,16 @@ class Model:
         self.trans = trans
         self.sinks = sinks
         self.graphs = graphs
+        self.all_nodes = sources+trans+sinks
 
     def sim(self,timesteps,graph_index,daily_demand):# you might have trouble refrencing graphs within its own class
         t = 0
         for i in range(timesteps):
             #step 1: back propogates demand
+            for i in self.all_nodes:
+                i.stat()
             for sink in self.sinks: 
+                sink.report()
                 parents = self.graphs[graph_index].isconnected(sink)
                 print(parents)
                 weight_tot = 0
