@@ -1,12 +1,17 @@
 #this is a stock and flow model 
-import queue
-import random
-from queue import Queue
-from sys import maxsize
-class Node:
+import queue #queue is putting first in first out (stack is first in last out)
+import random #tool from python that is brought into the program
+from queue import Queue #tool from python that is brought into the program
+from sys import maxsize #tool from python that is brought into the program
+class Node: 
     def __init__(self, name, status = True) -> None:
         self.status = status
         self.name = name
+        
+       #def is defining a fuction
+    #def___init creating a specific class with the 
+#function 
+#Class is a data structure (list, arrawy, 
     
     def stat(self):
         print(self.name,self.status)
@@ -37,12 +42,12 @@ class Source(Node):
         else: 
             print(f"node {self.name} is off and has {self.rescources} rescources")
 
-    def supply(self, ammount):
-        if self.status == True:
-            if self.rescources*self.efficiency < ammount:
-                output = self.rescources*self.efficiency
+    def supply(self, ammount): #define function supply with self and the amount (user puts in)
+        if self.status == True: 
+            if self.rescources*self.efficiency < ammount: #(resouces that we have times the effieciency is less than the amount inputted...)
+                output = self.rescources*self.efficiency #(demand)
                 self.rescources = 0
-                print(f"{self.name} is out of rescources!")
+                print(f"{self.name} is out of rescources!") # defining that the tank is empty
                 return output
             elif ammount > self.max_output:
                 self.rescources -= self.max_output/self.efficiency
